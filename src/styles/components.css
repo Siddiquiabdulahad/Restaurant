@@ -1,0 +1,134 @@
+/* Enhanced Gallery Styles */
+.gallery-slider {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.slider-container {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.slide.active .slide-image img {
+  transform: scale(1.05);
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 2rem;
+  color: var(--text-color);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.slide.active .slide-content {
+  transform: translateY(0);
+}
+
+.slide-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.slide-content p {
+  color: var(--text-muted);
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: var(--primary-color);
+}
+
+/* Responsive Design for Gallery */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 400px;
+  }
+  
+  .slide-content {
+    padding: 1.5rem;
+  }
+  
+  .slide-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .slider-container {
+    height: 300px;
+  }
+  
+  .slide-content {
+    padding: 1rem;
+  }
+  
+  .slide-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .slide-content p {
+    font-size: 0.9rem;
+  }
+}
